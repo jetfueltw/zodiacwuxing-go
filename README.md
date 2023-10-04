@@ -9,14 +9,14 @@ go get github.com/jetfueltw/zodiacwuxing-go
 ```
 
 ```go
-import "github.com/jetfueltw/zodiacwuxing-go"
+import "github.com/jetfueltw/zodiacwuxing-go/lhc6"
 ```
 
 # Useage
 
-取得 2020 年的生肖號碼
+取得 2020 年全部生肖的號碼
 ```go
-zodiacNumbers, err := zodiacwuxing.GetZodiacNumbers(2020)
+zodiacNumbers, err := lhc6.GetZodiacNumbers(2020)
 // [
 //     "rat"     => [1, 13, 25, 37, 49],
 //     "ox"      => [12, 24, 36, 48],
@@ -27,9 +27,15 @@ zodiacNumbers, err := zodiacwuxing.GetZodiacNumbers(2020)
 // ]
 ```
 
-取得 2020 年的號碼生肖
+取得 2020 年單一生肖的號碼
 ```go
-numberZodiacs, err := zodiacwuxing.GetNumberZodiacs(2020)
+zodiacNumber, err := lhc6.GetZodiacNumber(2020, "rat")
+// [1, 13, 25, 37, 49]
+```
+
+取得 2020 年全部號碼的生肖
+```go
+numberZodiacs, err := lhc6.GetNumberZodiacs(2020)
 // [
 //     1 => "rat",
 //     2 => "pig",
@@ -40,15 +46,21 @@ numberZodiacs, err := zodiacwuxing.GetNumberZodiacs(2020)
 // ]
 ```
 
-取得 2020 年的生肖
+取得 2020 年單一號碼的生肖
 ```go
-dutyZodiac, err := zodiacwuxing.GetDutyZodiac(year)
+numberZodiac, err := lhc6.GetNumberZodiac(2020, 1)
 // "rat"
 ```
 
-取得 2020 年的五行號碼
+取得 2020 年的值年生肖
 ```go
-wuxingNumbers, err := zodiacwuxing.GetWuxingNumbers(2020)
+dutyZodiac, err := lhc6.GetDutyZodiac(2020)
+// "rat"
+```
+
+取得 2020 年全部五行的號碼
+```go
+wuxingNumbers, err := lhc6.GetWuxingNumbers(2020)
 // [
 //     "metal" => [6, 7, 20, 21, 28, 29, 36, 37],
 //     "wood"  => [2, 3, 10, 11, 18, 19, 32, 33, 40, 41, 48, 49],
@@ -58,9 +70,15 @@ wuxingNumbers, err := zodiacwuxing.GetWuxingNumbers(2020)
 // ]
 ```
 
-取得 2020 年的號碼五行
+取得 2020 年單一五行的號碼
 ```go
-numberWuxings, err := zodiacwuxing.GetNumberWuxings(2020)
+wuxingNumber, err := lhc6.GetWuxingNumber(2020, "metal")
+// [6, 7, 20, 21, 28, 29, 36, 37]
+```
+
+取得 2020 年全部號碼的五行
+```go
+numberWuxings, err := lhc6.GetNumberWuxings(2020)
 // [
 //     1 => "earth",
 //     2 => "wood",
@@ -69,4 +87,10 @@ numberWuxings, err := zodiacwuxing.GetNumberWuxings(2020)
 //     5 => "fire",
 //     ...
 // ]
+```
+
+取得 2020 年單一號碼的五行
+```go
+numberWuxing, err := lhc6.GetNumberWuxing(2020, 1)
+// "earth"
 ```
