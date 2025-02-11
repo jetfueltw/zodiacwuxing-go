@@ -1,4 +1,4 @@
-package lslhc6
+package lsc6
 
 import (
 	"testing"
